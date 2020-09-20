@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { signIn } from '../../actions/authActions';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class SignIn extends Component {
     state = { 
@@ -14,10 +17,13 @@ class SignIn extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.props.signIn(this.state);
         console.log(this.state);
     }
 
     render() { 
+        const { uid } = this.props;
+        if(uid) return <Redirect exact to="/" />
         return ( 
             <div className="card SignInCard">
                 <div className="card-body">
@@ -36,7 +42,21 @@ class SignIn extends Component {
                 </div>
             </div>
         );
+    };
+};
+
+const mapStateToProps = state => {
+    let uid = state.firebase.auth.uid;
+    return {
+        uid
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        signIn: creds => {dispatch(signIn(creds))}
+    }
+}
+
  
-export default SignIn;
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

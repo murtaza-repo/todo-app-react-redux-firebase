@@ -22,8 +22,8 @@ const Navbar = () => {
       </button>
 
       <div className="collapse navbar-collapse" id="mynavbar">
-        <ul className="navbar-nav mr-auto">
-          <NavItems />
+        <ul className="navbar-nav ml-auto">
+          <NavItems closeNav={closeNav} />
         </ul>
       </div>
 

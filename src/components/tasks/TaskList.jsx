@@ -7,19 +7,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 const TaskList = ({ tasks }) => {
     return ( 
         <div className="container">
-            <table className="table table-light table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Tasks</th>
-                        <th scope="col">Added On</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { tasks && tasks.map(task => <Task task={task} key={task.id} />) }
-                </tbody>
-            </table>
+          { tasks && tasks.map(task => <Task task={task} key={task.id} />) }
         </div>
      );
 }
@@ -28,8 +16,8 @@ const mapStateToProps = (state) => {
   console.log(state);
   const tasks = state.firestore.ordered.tasks;
   return {
-    tasks: tasks
-    // uid: state.firebase.auth.uid
+    tasks: tasks,
+    uid: state.firebase.auth.uid
   };
 };
 export default compose(
@@ -37,7 +25,7 @@ export default compose(
   firestoreConnect((ownProps) => [
     {
       collection: "tasks",
-    //   where: ["authorId", "==", ownProps.uid],
+      where: ["authorId", "==", ownProps.uid],
       orderBy: ["date", "desc"],
     },
   ])

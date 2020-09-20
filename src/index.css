@@ -26,6 +26,13 @@ code {
   width: 350px;
 }
 
+.spinner{
+  position: absolute !important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .sidenav {
   height: 100%;
   width: 0;
