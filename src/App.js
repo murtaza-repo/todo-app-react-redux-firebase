@@ -10,8 +10,8 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <BrowserRouter>
-      <ToastContainer />
       <Navbar />
+      <ToastContainer />
       <Switch>
         <Route exact path="/signin" component={ SignIn } />
         <Route exact path="/signup" component={ SignUp } />

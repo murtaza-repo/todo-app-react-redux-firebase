@@ -3,29 +3,29 @@ import { NavLink } from "react-router-dom";
 import { signOut } from '../../actions/authActions';
 import { connect } from 'react-redux';
 
-const NavItems = ({closeNav, signOut, uid}) => {
+const NavItems = ({signOut, uid}) => {
   if(uid){
     return (
-      <>
-        <NavLink exact to="/" className="nav-link" onClick={closeNav}>
-          Dashboard
-        </NavLink>
-        <NavLink to="/signin" className="nav-link" onClick={() => {signOut(); closeNav();}}>
+      <li>
+        <NavLink to="/signin" onClick={signOut}>
           SignOut
         </NavLink>
-      </>
+      </li>
     );
   }
   else{
     return (
       <>
-        <NavLink to="/signup" className="nav-link" onClick={closeNav}>
-          SignUp
-        </NavLink>
-  
-        <NavLink to="/signIn" className="nav-link" onClick={closeNav}>
-          SignIn
-        </NavLink>
+        <li>
+          <NavLink to="/signup">
+            SignUp
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/signIn">
+            SignIn
+          </NavLink>
+        </li>
       </>
     );
   }
