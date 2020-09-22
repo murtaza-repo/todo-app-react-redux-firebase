@@ -7,7 +7,9 @@ import { firestoreConnect } from 'react-redux-firebase';
 const TaskList = ({ tasks }) => {
     return ( 
         <div className="container">
-          { tasks && tasks.map(task => <Task task={task} key={task.id} />) }
+          <div className="row">
+            { tasks && tasks.map(task => <Task task={task} key={task.id} />) }
+          </div>
         </div>
      );
 }

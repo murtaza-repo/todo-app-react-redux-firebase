@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class AddTask extends Component {
     state = { 
         task: '',
-        checked: 'false'
+        checked: false
     }
     
     handleChange = (e) => {
@@ -27,9 +27,8 @@ class AddTask extends Component {
                 <div className="row">
                     <div className="offset-md-2 col-md-8 col-sm-12">
                         <div className="form-group mt-4">
-                            <label htmlFor="task">Add a Task</label>
                             <div className="input-group">
-                                <input type="text" className="form-control" id="task" placeholder="Enter task" onChange={this.handleChange} />
+                                <textarea className="form-control" rows="2" id="task" placeholder="Add a task..." onChange={this.handleChange} />
                                 <div className="input-group-append">
                                     <button type="submit" className="btn btn-primary">Add</button>
                                 </div>

@@ -32,6 +32,10 @@ code {
   width: 350px;
 }
 
+.taskCard{
+  border-radius: 10px !important;
+}
+
 .spinner{
   position: absolute !important;
   left: 50%;
@@ -55,4 +59,18 @@ code {
 .navbar-right a{
   padding: 5px;
   text-decoration: none !important;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  resize: both;
+  min-height: 40px;
+  line-height: 20px;
+}
+
+.textarea[contenteditable]:empty::before {
+  content: "Enter a Task";
+  color: gray;
 }

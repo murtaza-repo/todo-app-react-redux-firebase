@@ -15,26 +15,28 @@ const Task = ({task, removeTask, toggleChecked}) => {
     };
 
     return (
-
-      <div className="card mb-3" style={{color: "black"}}>
-        <div className="card-header">
-            <div className="card-title lead text-muted" style={{ display: "inline"}}>Task</div>
-            <div style={{ display: "inline", float:"right"}}>
-                <span className="material-icons text-danger" onClick={()=>{handleRemove(task)}} style={{cursor: "pointer"}}>delete</span>
-            </div>
-        </div>
-        <div className="card-body">
-          <p className="card-text">
-            {task.task}
-          </p>
-        </div>
-        <div className="card-footer">
-            <div className="text-muted" style={{ display: "inline"}}>Added On: {moment(task.date.toDate()).calendar()}</div>
-            <div style={{ display: "inline", float:"right"}}> <Check onClick={() => {handleCheck(task)}} checked={task.checked} /></div>    
-        </div>
+      <div className="col-md-6 col-sm-12">
+        <div className="card mb-3 taskCard" style={{color: "black"}}>
+          <div className="card-header">
+              <div className="card-title lead text-muted" style={{ display: "inline"}}>Task</div>
+              <div style={{ display: "inline", float:"right"}}>
+                  <Check clickListener={() => {handleCheck(task)}} checked={task.checked} />
+                  <button className="btn" title="Delete a Task"><span className="material-icons text-danger" onClick={()=>{handleRemove(task)}}>delete</span></button>
+              </div>
+          </div>
+          <div className="card-body">
+            <p className="card-text">
+              {task.task}
+            </p>
+            <small className="text-muted">Added On: {moment(task.date.toDate()).calendar()}</small>
+          </div>
+        </div>  
       </div>
+      
     );
 }
+
+
 
 const mapDispatchToProps = dispatch => {
     return {
