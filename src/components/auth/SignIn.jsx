@@ -31,11 +31,11 @@ class SignIn extends Component {
                     <form className="container" autoComplete="off" onSubmit={this.handleSubmit}>
                         <div className="form-group mt-4">
                             <label htmlFor="email">Email address</label>
-                            <input type="email" className="form-control" id="email" placeholder="Enter email" onChange={this.handleChange} />
+                            <input type="email" className="form-control" id="email" placeholder="Enter email" onChange={this.handleChange} required/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
-                            <input type="password" className="form-control" id="password" placeholder="Password" onChange={this.handleChange} />
+                            <input type="password" className="form-control" id="password" placeholder="Password" onChange={this.handleChange} required/>
                         </div>
                         <button type="submit" className="btn btn-primary">SignIn</button>
                     </form>

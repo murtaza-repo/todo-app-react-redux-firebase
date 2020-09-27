@@ -74,3 +74,11 @@ code {
   content: "Enter a Task";
   color: gray;
 }
+
+.card-text {
+  white-space: pre-wrap;
+}
+
+.btn:focus{
+  box-shadow: none !important;
+}
